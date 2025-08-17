@@ -1,3 +1,4 @@
+index.html:
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,3 +14,39 @@
 </body>
 </html>
 
+style.css:
+body {
+  font-family: Arial, sans-serif;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#task-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+#task-list li:last-child {
+  border-bottom: none;
+}
+
+script.js:
+const taskInput = document.getElementById('task-input');
+const addTaskBtn = document.getElementById('add-task-btn');
+const taskList = document.getElementById('task-list');
+
+addTaskBtn.addEventListener('click', addTask);
+
+function addTask() {
+  const taskText = taskInput.value.trim();
+  if (taskText) {
+    const task = document.createElement('li');
+    task.textContent = taskText;
+    taskList.appendChild(task);
+    taskInput.value = '';
+  }
+}
